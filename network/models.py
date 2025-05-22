@@ -22,7 +22,7 @@ class Contact(models.Model):
         verbose_name_plural = 'Контакты'
 
 
-class Product:
+class Product(models.Model):
     """ Модель продукта """
     name = models.CharField(
         max_length=150,
@@ -49,7 +49,6 @@ class Network(models.Model):
     RETAIL = 1
     ENTREPRENEUR = 2
 
-    """Уровни поставщиков"""
     LEVEL_CHOICES = [
         (FACTORY, 'Завод'),
         (RETAIL, 'Розничная сеть'),
@@ -63,17 +62,20 @@ class Network(models.Model):
     )
     level = models.IntegerField(
         choices=LEVEL_CHOICES,
-        verbose_name='Уровень поставщика'
+        verbose_name='Уровень поставщика',
+        editable=False
     )
-    contact = models.ForeingKey(
+    contact = models.OneToOneField(
         Contact,
+        on_delete=models.SET_NULL,
+        null=True,
         verbose_name='Контакты поставщика'
     )
-    product = models.ManyToManyField(
+    products = models.ManyToManyField(
         Product,
         verbose_name='Продукт поставщика'
     )
-    supplier = models.ForeingKey(
+    supplier = models.ForeignKey(
         'self',
         on_delete=models.SET_NULL,
         null=True,
