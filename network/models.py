@@ -63,17 +63,18 @@ class Network(models.Model):
     level = models.IntegerField(
         choices=LEVEL_CHOICES,
         verbose_name='Уровень поставщика',
-        editable=False
+        editable=False,
+        null=True,
     )
     contact = models.OneToOneField(
         Contact,
         on_delete=models.SET_NULL,
         null=True,
-        verbose_name='Контакты поставщика'
+        verbose_name='Контакты'
     )
     products = models.ManyToManyField(
         Product,
-        verbose_name='Продукт поставщика'
+        verbose_name='Продукт'
     )
     supplier = models.ForeignKey(
         'self',
@@ -89,7 +90,7 @@ class Network(models.Model):
         verbose_name='Задолжность перед поставщиком'
     )
     created_at = models.DateField(
-        verbose_name='Дата создания'
+        verbose_name='Дата создания', auto_now_add=True
     )
 
     class Meta:
