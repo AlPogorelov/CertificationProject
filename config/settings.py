@@ -30,11 +30,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'network',
-
+    'users',
 
     'rest_framework',
-
-
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -48,6 +47,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+}
 
 TEMPLATES = [
     {
@@ -117,6 +120,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+
+AUTH_USER_MODEL = 'users.User'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
