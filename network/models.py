@@ -111,11 +111,3 @@ class Network(models.Model):
         """Переопределенный метод сохранения"""
         self._update_level()
         super().save(*args, **kwargs)
-    # def save(self, *args, **kwargs):
-    #     """Автоматически устанавливаем уровень при сохранении"""
-    #     if not hasattr(self, 'level') or self.level is None:
-    #         if self.supplier:
-    #             self.level = min(self.supplier.level + 1, self.ENTREPRENEUR)
-    #         else:
-    #             self.level = self.FACTORY
-    #     super().save(*args, **kwargs)
