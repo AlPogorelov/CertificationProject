@@ -33,7 +33,7 @@ class User(AbstractUser):
     country = models.CharField(max_length=25, verbose_name='Страна', blank=True,
                                null=True, help_text="Из какой вы страны")
     avatar = models.ImageField(upload_to='users/avatars/', verbose_name='Аватар',
-                               blank=True, null=True, help_text="Загрузити свой аватар")
+                               blank=True, null=True, help_text="Загрузите свой аватар")
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []

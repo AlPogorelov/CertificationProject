@@ -16,7 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Network)
 class NetworkAdmin(admin.ModelAdmin):
     list_display = ('name', 'get_supplier_link', 'level', 'contact', 'debt', 'created_at')
-    list_filter = ('contact__city',)
+    list_filter = ('contact__city', 'name')
     actions = ['clear_debt']
 
     def get_supplier_link(self, obj):

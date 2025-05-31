@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('email', models.EmailField(max_length=254, unique=True, verbose_name='Email')),
                 ('phone', models.CharField(blank=True, help_text='Введите номер телефона', max_length=15, null=True, verbose_name='Телефон')),
                 ('country', models.CharField(blank=True, help_text='Из какой вы страны', max_length=25, null=True, verbose_name='Страна')),
-                ('avatar', models.ImageField(blank=True, help_text='Загрузити свой аватар', null=True, upload_to='users/avatars/', verbose_name='Аватар')),
+                ('avatar', models.ImageField(blank=True, help_text='Загрузите свой аватар', null=True, upload_to='users/avatars/', verbose_name='Аватар')),
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
             ],
